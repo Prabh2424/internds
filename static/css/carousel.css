@@ -1,0 +1,62 @@
+#owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto; /* This property maintains the aspect ratio */
+    /* Increase the height as needed */
+    height: 400px; /* Adjust this value to your desired height */
+}
+
+
+#another-owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    margin-top: 10px;
+    /* Increase the height as needed */
+    height: 100px; /* Adjust this value to your desired height */
+}
+
+/* Styles for navigation buttons */
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  font-size: 24px; /* Button icon size */
+  border-radius: 50%; /* Make buttons circular */
+  z-index: 10; /* Ensure buttons are above carousel items */
+}
+
+.owl-prev {
+  left: 10px; /* Adjust position as needed */
+}
+
+.owl-next {
+  right: 10px; /* Adjust position as needed */
+}
+
+/* Styles for indicators (dots) */
+.owl-dots {
+    text-align: center;
+    margin-top: 20px; /* Adjust spacing as needed */
+    position: absolute; /* Add this line to position the dots */
+    bottom: 1px; /* Adjust the bottom position as needed */
+    left: 50%; /* Adjust the left position as needed */
+    transform: translateX(-50%); /* Center the dots horizontally */
+}
+
+.owl-dot {
+    display: inline-block;
+    width: 10px; /* Adjust size as needed */
+    height: 10px; /* Adjust size as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Dot color */
+    margin: 0 5px; /* Adjust spacing between dots */
+    border-radius: 50%; /* Make dots circular */
+}
+

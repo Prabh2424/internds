@@ -1,0 +1,46 @@
+/* Photos section */
+.main-doc-photos-section {
+  margin-top: 20px; /* Add top margin */
+}
+.main-doc-photos-section .row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.main-doc-photos-section .main-doc {
+  padding: 0 5px;
+}
+.main-doc-photos-section .main-doc img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px; /* Add bottom margin */
+  transition: transform 0.3s ease-in-out; /* Add transition for scaling */
+}
+
+/* Media query to adjust photo size on smaller screens */
+@media (max-width: 768px) {
+  .main-doc-photos-section .main-doc {
+    max-width: 16.66667%;
+  }
+}
+.trending-categories-section {
+  animation: changeBackground 10s infinite alternate; /* Change duration as needed */
+  /* padding: 30px 0; */
+  color: white; /* Set text color to contrast with background */
+}
+
+/* Keyframes for background color change */
+@keyframes changeBackground {
+  0% { background-color: #ff7e5f; }
+  25% { background-color: #feb47b; }
+  50% { background-color: #ffcc5c; }
+  75% { background-color: #aaffa9; }
+  100% { background-color: #96e6a1; }
+}
+
+/* Hover effect */
+.main-doc-photos-section .main-doc img:hover {
+  opacity: 0.8;
+  transform: scale(1.1); /* Add scaling on hover */
+}
+
+

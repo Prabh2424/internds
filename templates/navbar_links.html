@@ -1,0 +1,92 @@
+<!-- navbar_links.html -->
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid justify-content-between">
+        <!-- Hamburger menu icon -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" height="30">
+        </a>
+        <!-- Elements -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'men_section' %}">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'women_section' %}">Women</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'log_out' %}">Log-out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'log_in' %}">Log-in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sign_up' %}">Sign-up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- Search Form -->
+        <!-- <div class="input-group search-field">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </div> -->
+        <!-- Search Icon (shown on small screens) -->
+        <div class="d-lg-none search-icon">
+            <button class="btn btn-outline-dark">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <!-- Icons -->
+        <div class="navbar-icons">
+            <div class="divider-navbar"></div>
+            <div class="icon">
+                <a href="{% url 'log_in' %}"><i class="fas fa-user"></i></a>
+            </div>
+            <div class="icon">
+                <a href="#"><i class="fas fa-heart"></i></a>
+            </div>
+            <form class="d-flex">
+                <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark">
+                    <i class="bi-cart-fill me-1"></i> Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span>
+                </a>
+            </form>
+        </div>
+</nav>
+
+<!-- Links Section -->
+<div class="container-fluid second-nav">
+    <div class="row mt-3">
+        <div class="col">
+            <div class="links-container-nav text-center">
+                <div class="d-inline-flex flex-nowrap">
+                    <a href=""><div class="nav-link">Live Now</div></a>
+                    <a href=""><div class="nav-link">Shop Now</div></a>
+                    <a href="{% url 'men_section' %}"><div class="nav-link">Mens</div></a>
+                    <a href="main-women.html"><div class="nav-link">Women</div></a>
+                    <a href=""><div class="nav-link">Kids</div></a>
+                    <a href=""><div class="nav-link">Accessories</div></a>
+                    <a href=""><div class="nav-link">Top Brands</div></a>
+                    <a href=""><div class="nav-link">New Collection</div></a>
+                    <a href=""><div class="nav-link">Sale</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

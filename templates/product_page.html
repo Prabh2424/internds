@@ -1,0 +1,88 @@
+{% extends 'men-product.html' %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+
+{% block product-content %}
+
+<div class="container">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+
+                    {% if product.sale_price %}
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹{{ product.price }}</span> ₹{{ product.sale_price }}</p>
+                    {% else %}
+                        <p>{{ product.price }}</p>
+                    {% endif %}
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+
+                    <!-- Quantity dropdown -->
+                    <div class="row justify-content-center">
+                        <div class="col-md-2">Quantity:</div>
+                        <div class="col-md-2">
+                            <select class="form-select form-select-sm" id="qty-cart">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <!-- Add to Cart and Buy Now buttons -->
+                    <div class="d-grid gap-2">
+                        <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add To Cart</button>
+                        <button class="btn btn-success">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock product-content %}
+{% block scripts %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#add-cart').click(function(e) {
+      e.preventDefault();
+      var productId = $(this).val();
+      var productQty = $('#qty-cart option:selected').text();
+      var csrfToken = '{{ csrf_token }}';
+
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'cart_add' %}",
+        data: {
+          product_id: productId,
+          product_qty: productQty,
+          csrfmiddlewaretoken: csrfToken,
+          action: 'post'
+        },
+        success: function(json) {
+          document.getElementById("cart_quantity").textContent = json.qty;
+          location.reload();
+          console.log("Product added to cart!");
+        },
+        error: function(xhr, errmsg, err) {
+          console.error("Error adding product to cart:", errmsg);
+        }
+      });
+    });
+  });
+</script>
+
+
+{% endblock scripts %}

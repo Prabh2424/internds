@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Layout</title>
+    <!-- navbar css -->
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <!-- footer css -->
+    <link rel="stylesheet" href="{% static '/css/footer.css' %}">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- ==== font-awesome ===== -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
+  <style>
+
+  .filter-section {
+    border-right: 2px solid #ffc107;
+    padding-right: 20px;
+    margin-top: 50px;
+    top: 0;
+}
+
+.separator {
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.men-product-main-image {
+  margin-top: 90px;
+}
+
+.product-card {
+  margin-bottom: 20px;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.image-container {
+  position: relative;
+}
+
+.overlay-box {
+  position: absolute;
+  top: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1px 3px; /* Adjust the padding to make the box smaller */
+  font-size: 10px; /* Adjust the font size to make the text smaller */
+}
+.rating-box {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1px 3px;
+  font-size: 10px;
+}
+
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-name {
+  flex-grow: 1;
+}
+
+.heart-icon {
+  margin-left: auto;
+  color: red;
+}
+
+.image-container img {
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for transform and opacity changes */
+}
+
+.image-container:hover img {
+  transform: scale(1.02); /* Example: Scale the image up slightly when hovered */
+  opacity: 0.8; /* Example: Reduce opacity when hovered */
+}
+
+.image-container img:not(:hover) {
+  transform: scale(1); /* Restore original scale when not hovered */
+  opacity: 1; /* Restore original opacity when not hovered */
+}
+@media (max-width: 676px) {
+  .col-md-4 {
+    flex: 0 0 50%; /* Set the flex basis to 50% for two columns per row */
+    max-width: 50%;
+  }
+}
+  </style>
+
+</head>
+<body>
+
+   <!-- ====== navbar starting ======== -->
+   
+   {% block navbar %}
+    
+   
+    
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid justify-content-between"> <!-- Add justify-content-between class -->
+          <!-- Hamburger menu icon -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+              <img src="logo.png" alt="Logo" height="30">
+          </a>
+          <!-- Elements -->
+          <div class="collapse navbar-collapse" id="navbarNav"> <!-- Remove justify-content-center class -->
+              <ul class="navbar-nav mx-auto"> <!-- Add mx-auto class -->
+                  <li class="nav-item">
+                      <a class="nav-link" href="/index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/men-product.html">Men</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/women-product.html">Women</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- Search Form -->
+          <div class="input-group search-field">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </div>
+          <!-- Search Icon (shown on small screens) -->
+          <div class="d-lg-none search-icon">
+              <button class="btn btn-outline-dark">
+                  <i class="fas fa-search"></i>
+              </button>
+          </div>
+          <!-- Icons -->
+          <div class="navbar-icons">
+              <div class="divider-navbar"></div>
+              <div class="icon">
+                <a href="sign-in.html"><i class="fas fa-user"></i></a>
+              </div>
+              <div class="icon">
+                <a href="#"><i class="fas fa-heart"></i></a>
+              </div>
+              <div class="icon">
+                  <a href="#"><i class="fas fa-shopping-cart"></i></a>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  {% endblock navbar %}
+<!-- ====== navbar ending ========= -->
+
+     <!-- Links Section -->
+    <div class="container-fluid second-nav">
+      <div class="row mt-3">
+          <div class="col">
+              <div class="links-container-nav text-center"> <!-- Center the links container -->
+                  <div class="d-inline-flex flex-nowrap">
+                      <a href=""><div class="nav-link">Live Now</div></a>
+                      <a href=""><div class="nav-link">Shop Now</div></a>
+                      <a href="main-men.html"><div class="nav-link">Mens</div></a>
+                      <a href="main-women.html"><div class="nav-link">Women</div></a>
+                      <a href=""><div class="nav-link">Kids</div></a>
+                      <a href=""><div class="nav-link">Accessories</div></a>
+                      <a href=""><div class="nav-link">Top Brands</div></a>
+                      <a href=""><div class="nav-link">New Collection</div></a>
+                      <a href=""><div class="nav-link">Sale</div></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<!-- ======== link section end ========= -->
+
+
+{% block product-content %}
+  
+  
+  <div class="container">
+        <div class="row">
+          <!-- Filter Section -->
+          <div class="col-lg-3 filter-section">
+            <h4>{{ Category }}: <span class="badge badge-pill badge-warning">128</span></h4>
+            <hr style="border-color: #ffc107; margin: 0 0 10px;">
+            <div class="filters">
+              <h5>Filters</h5>
+              <select class="form-control">
+                <option value="">Category</option>
+                <option value="joggers"><a href="{% url 'Category ' 'shirts' %}"> Joggers </a></option>
+                <option value="jeans">Jeans</option>
+                <option value="trousers">Trousers</option>
+                <option value="casual-pants">Casual Pants</option>
+                <option value="track-pant">Track Pant</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Size</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="2xl">2XL</option>
+                <option value="3xl">3XL</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="34">34</option>
+                <option value="36">36</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Color</option>
+                <option value="solid">Solid</option>
+                <option value="camouflage">Camouflage</option>
+                <option value="graphic-print">Graphic Print</option>
+                <option value="washed">Washed</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Design</option>
+                <option value="solid">Solid</option>
+                <option value="camouflage">Camouflage</option>
+                <option value="graphic-print">Graphic Print</option>
+                <option value="washed">Washed</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Fit</option>
+                <option value="oversized-fit">Oversized Fit</option>
+                <option value="regular-fit">Regular Fit</option>
+                <option value="super-loose-fit">Super Loose Fit</option>
+                <option value="slim-fit">Slim Fit</option>
+                <option value="loose-comfort-fit">Loose Comfort Fit</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Ratings</option>
+                <option value="4.5-and-above">4.5 and above</option>
+                <option value="4-and-above">4 and above</option>
+                <option value="3.5-and-above">3.5 and above</option>
+                <option value="3-and-above">3 and above</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Offers</option>
+                <option value="buy-2-for-1499">Buy 2 For 1499</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Discount</option>
+                <option value="20-percent-or-more">20% or more</option>
+                <option value="30-percent-or-more">30% or more</option>
+                <option value="40-percent-or-more">40% or more</option>
+                <option value="50-percent-or-more">50% or more</option>
+                <option value="60-percent-or-more">60% or more</option>
+                <option value="70-percent-or-more">70% or more</option>
+              </select>
+              <div class="separator"></div>
+              <select class="form-control">
+                <option value="">Sort By</option>
+                <option value="popular">Popular</option>
+                <option value="new">New</option>
+                <option value="price-high-to-low">Price: High to Low</option>
+                <option value="price-low-to-high">Price: Low to High</option>
+              </select>
+            </div>
+          </div>
+
+       <!-- Product Section -->
+       <div class="col-lg-9">
+        <!-- Single Image with 100% Width -->
+        <img src="{% static '/img/men-product/main-image.jpg' %}" class="img-fluid men-product-main-image" alt="Product Image">
+        <!-- You can replace the placeholder image with your actual product image -->
+        <div class="row mt-2">
+
+
+
+          {% for product in products %}
+          {% if product.is_sale %}
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="image-container">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                <div class="overlay-box">{{ product.description}}</div>
+                <div class="rating-box">
+                  <i class="fas fa-star"></i> {{ product.rating }}
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                  <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                </div>
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text price"><span style="text-decoration: line-through;">₹{{ product.price }}</span> ₹{{ product.sale_price }}</p>
+                <a href="{% url 'product' product.id %}" class="btn btn-primary">View Product</a>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-md-4">
+          <div class="card product-card">
+              <div class="image-container">
+                  <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                  <div class="overlay-box">Oversized Fit</div>
+                  <div class="rating-box">
+                      <i class="fas fa-star"></i> 4.5
+                  </div>
+              </div>
+              <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                      <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                  </div>
+                  <h5 class="card-title">Product Name 1</h5>
+                  <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+              </div>
+          </div>
+      </div>
+          {% else %} 
+          
+          {% endif %}
+
+          {% endfor %}
+          
+
+
+
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="image-container">
+                        <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                        <div class="overlay-box">Oversized Fit</div>
+                        <div class="rating-box">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                            <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <h5 class="card-title">Product Name 1</h5>
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="image-container">
+                        <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                        <div class="overlay-box">Oversized Fit</div>
+                        <div class="rating-box">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                            <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <h5 class="card-title">Product Name 1</h5>
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="image-container">
+                        <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                        <div class="overlay-box">Oversized Fit</div>
+                        <div class="rating-box">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                            <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <h5 class="card-title"></h5>
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="image-container">
+                        <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                        <div class="overlay-box">Oversized Fit</div>
+                        <div class="rating-box">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                            <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <h5 class="card-title">Product Name 1</h5>
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="image-container">
+                        <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                        <div class="overlay-box">Oversized Fit</div>
+                        <div class="rating-box">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                            <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <h5 class="card-title">Product Name 1</h5>
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="image-container">
+                        <img src="{% static '/img/men-product/first.webp' %}" class="card-img-top" alt="Product 1">
+                        <div class="overlay-box">Oversized Fit</div>
+                        <div class="rating-box">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-subtitle mb-2 text-muted">Jattpura</h6>
+                            <a href="#" class="btn btn-link"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <h5 class="card-title">Product Name 1</h5>
+                        <p class="card-text price"><span style="text-decoration: line-through;">₹3149</span> ₹1399</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product cards here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock product-content %}
+
+    <!--======== footter starting =============-->
+      <footer class="footer bg-dark text-white">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <h5>About Us</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="col-md-3">
+              <h5>Customer Service</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5>My Account</h5>
+              <ul class="list-unstyled">
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">My Orders</a></li>
+                <li><a href="#">Wishlist</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5>Follow Us</h5>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p>&copy; 2024 Your Company. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <!--======= footter ending ==========-->
+    
+</body>
+</html>

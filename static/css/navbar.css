@@ -1,0 +1,301 @@
+.navbar {
+    background-color: #fff; /* Navbar background color */
+    border-bottom: 2px solid #ccc; /* Border at the bottom of the navbar */
+  }
+  .navbar-brand {
+    margin-right: 10px; /* Margin to provide space between logo and hamburger */
+  }
+  .navbar-toggler {
+    margin-right: 0; /* Remove default margin */
+  }
+  .navbar-toggler-icon {
+    width: 20px; /* Adjust the width of the hamburger menu icon */
+    height: 20px; /* Adjust the height of the hamburger menu icon */
+  }
+  .navbar-nav {
+    margin-left: auto; /* Pushes the navbar items to the right */
+    display: flex;
+    align-items: center;
+  }
+  .navbar-nav .nav-item {
+    margin-right: 20px; /* Margin between each navbar item */
+  }
+  .navbar-nav .nav-link {
+    color: #000; /* Navbar item color */
+  }
+  .search-field {
+    flex-grow: 1; /* Allow the search field to grow and fill the available space */
+    max-width: 200px; /* Set a maximum width to prevent it from becoming too wide */
+  }
+  
+  @media (max-width: 768px) {
+    .search-field {
+      max-width: none; /* Remove the maximum width constraint on smaller screens */
+      margin-right: 10px; /* Add margin to separate it from the icons */
+    }
+  }
+  
+  
+  .navbar-icons {
+    margin-left: 20px; /* Increase space between the icons and the search field */
+    display: flex;
+    align-items: center;
+  }
+  .navbar-icons .icon {
+    margin-right: 10px; /* Adjust space between the icons */
+  }
+  .navbar-icons .icon a {
+      color: inherit; /* Use the same color as the parent element */
+      text-decoration: none; /* Remove underline */
+  }
+  .divider-navbar {
+    height: 20px; /* Height of the divider line */
+    border-left: 1px solid #ccc; /* Border style */
+    margin: 0 10px; /* Adjust margin for the divider */
+  }
+
+
+  .sale-mark {
+    display: flex;
+    justify-content: flex-start;
+    background: #003049;
+    overflow: hidden;
+  }
+  .sale-text{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white;
+    white-space: nowrap;
+    padding: 0 6rem;
+    letter-spacing: 1px;
+    animation: move-rtl 6000ms linear infinite;
+  }
+  @keyframes move-rtl {
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(-100%);
+    }
+  }
+ 
+  /* navbar second */
+  .second-nav {
+      max-width: 100%;
+      overflow-x: hidden; /* Hide horizontal overflow */
+  }
+  .links-container-nav {
+      overflow-x: auto; /* Enable horizontal scrolling */
+      max-width: 100%; /* Set maximum width to 100% */
+      width: 900px; /* Set a fixed width for the container */
+      margin: 0 auto; /* Center the links container */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+  .links-container-nav .nav-link {
+    display: inline-block; /* Ensure links stay in a single line */
+    padding: 0 20px; /* Adjust padding as needed */
+    margin-right: 10px; /* Adjust margin between links */
+}
+  .links-container-nav::-webkit-scrollbar {
+      display: none; /* Hide the scrollbar */
+  }
+.second-nav a{
+  text-decoration: none;
+  color: #000;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  header#mobile {
+      display: block;
+  }
+
+  header {
+      display: none;
+      background: #0f1111;
+  }
+
+  /* Header Section */
+  #navBar {
+      padding: 0 1rem;
+      height: 3rem;
+  }
+
+  #navLogo .logo {
+      font-size: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #sec-Div {
+      width: 50%;
+  }
+
+  #navSearch {
+      width: 90%;
+      margin: 0 auto .5rem auto;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 3px solid transparent;
+  }
+
+  #navSearch input {
+      outline: none;
+      padding-left: .5rem;
+  }
+
+  i.nav-icons {
+      font-size: 3rem;
+  }
+
+  #navCart {
+      margin-left: 1rem;
+  }
+
+  /* box 6 of Navigaton bar */
+  i.nav-icons {
+      font-size: 1.2rem;
+  }
+
+  #pannelOps {
+      position: relative;
+  }
+
+  #pannelOps::before {
+      content: "Shop by";
+      position: absolute;
+      top: -10px;
+      font-size: .5rem;
+      left: 0;
+      color: white;
+      width: 100%;
+      height: 100%;
+  }
+
+  #pannelDeals {
+      font-size: 0.6rem;
+  }
+
+  */
+
+  /* home Sction */
+  #home {
+      background: url(../img/hero_image.jpg);
+      background-size: cover;
+      /* height: 18.7rem; */
+      height: 10rem;
+  }
+
+  #home .homeMsg,
+  #home button {
+      display: none;
+  }
+
+  #shopSection {
+      overflow: auto;
+  }
+
+  div.slider {
+      width: 50%;
+      flex-wrap: nowrap;
+  }
+
+  #shopSection .box {
+      width: 45%;
+      height: 180px;
+  }
+
+  .boxContent h2 {
+      font-size: .9rem;
+  }
+
+  .boxImg {
+      height: 70%;
+      margin: .5rem 0;
+  }
+
+  .boxContent p {
+      /* display: none; */
+      font-size: .7rem;
+  }
+
+  footer {
+      display: none;
+  }
+
+  footer#mobile {
+      display: block;
+  }
+
+  .foot-logo .logo {
+      font-size: 2rem;
+  }
+
+  .foot-pannel2 {
+      background: #222f3df3;
+      min-height: 10rem;
+      padding-bottom: 2rem;
+  }
+
+  .foot-pannel2 ul {
+      margin-top: 3rem;
+      width: 40%;
+  }
+
+  .foot-pannel2 ul p {
+      margin-top: 1rem;
+  }
+
+  .foot-pannel2 ul p:hover {
+      color: #597ea5;
+  }
+
+  .foot-pannel4 {
+      height: 19rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  #lang-btn {
+      border: none;
+      margin: 0rem auto;
+      margin-bottom: 1.5rem;
+      width: 9rem;
+      outline: none;
+  }
+
+  .foot-pannel4 .foot-pages {
+      padding-top: .7rem;
+      font-size: .75rem;
+  }
+
+  .foot-pannel4 .foot-pages a {
+      text-decoration: none;
+      color: white;
+      margin-left: .9rem;
+  }
+
+  .foot-pannel4 .copyright {
+      font-size: .7rem;
+  }
+
+  /* Side bar Close */
+  #sideBar {
+      width: 20rem;
+      width: 90vw;
+  }
+
+  #sideBar.active span.bg {
+      transform: translateX(65vw);
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+/* CSS for four photos section */
+.four-photos-section {
+    margin-top: 20px; /* Add top margin */
+  }
+  .four-photos-section .row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .four-photos-section .col-md-6 {
+    padding: 0 5px;
+  }
+  .four-photos-section .col-md-6 img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add bottom margin */
+  }
+
+  /* Media query to adjust photo size on smaller screens */
+  @media (max-width: 768px) {
+    .four-photos-section .col-md-6 {
+      max-width: 50%;
+    }
+  }
+ 
+  .too-hot-text {
+    animation: changeTextColor 10s infinite alternate; /* Change duration as needed */
+  }
+  
+  /* Keyframes for text color change */
+  @keyframes changeTextColor {
+    0% { color: #ff7e5f; }
+    25% { color: #feb47b; }
+    50% { color: #ffcc5c; }
+    75% { color: #aaffa9; }
+    100% { color: #96e6a1; }
+  }

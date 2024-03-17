@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom JavaScript Slider with Bootstrap</title>
+     <!-- navbar css -->
+     <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+     <!-- footer css -->
+     <link rel="stylesheet" href="{% static '/css/footer.css' %}">
+ 
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+   <!-- ==== font-awesome ===== -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   
+ <style>
+    /* Custom CSS for carousel */
+.slider-container {
+  /* max-width:; Set desired max-width */
+  margin: 0 auto; /* Center the container */
+  overflow: hidden; /* Hide overflow */
+  position: relative; /* Set relative positioning */
+  cursor: pointer; /* Add cursor support */
+}
+.slider {
+  display: flex; /* Use flexbox for slider items */
+  transition: transform 0.5s ease; /* Add smooth transition */
+}
+.slide {
+  flex: 0 0 calc(100% / 3); /* Set width of each slide */
+}
+.slide img {
+  width: 100%; /* Make images fill the slide container */
+  height: auto; /* Maintain aspect ratio */
+}
+.prev, .next {
+  position: absolute; /* Position the navigation buttons */
+  top: 50%; /* Align vertically */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 10px; /* Add padding */
+  cursor: pointer; /* Show pointer cursor */
+  z-index: 1; /* Ensure buttons are above slides */
+}
+.prev {
+  left: 0; /* Align to the left */
+}
+.next {
+  right: 0; /* Align to the right */
+}
+.indicators {
+  position: absolute; /* Position the indicators */
+  bottom: -2px; /* Align to the bottom */
+  left: 50%; /* Align to the center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  display: flex; /* Use flexbox for layout */
+}
+.dot {
+  width: 20px; /* Set line width */
+  height: 7px; /* Set line height (thicker) */
+  background-color: rgba(255, 255, 255, 0.5); /* Line color */
+  margin: 0 5px; /* Add margin between dots */
+  cursor: pointer; /* Show pointer cursor */
+}
+.dot.active {
+  background-color: white; /* Change color for active dot */
+}
+
+ .column-img img {
+    max-width: 100%; /* Ensure images don't exceed column width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .description {
+  text-align: center; /* Center the text */
+  margin-top: 10px; /* Add some top margin */
+  font-size: 14px; /* Adjust font size */
+  color: #0b0a0a; /* Set text color */
+}
+@media (max-width: 776px) {
+    .column-img {
+      display: none; /* Hide column images */
+    }
+  }
+
+   /* Image after item section */
+   .full-width-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover; /* Ensure the image covers the container */
+    }
+
+    @media (max-width: 768px) {
+      .full-width-image {
+        max-height: 300px; /* Reduce height on smaller screens */
+      }
+    }
+   /* Photos section */
+   .photos-section {
+      margin-top: 20px; /* Add top margin */
+    }
+    .photos-section .row {
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+    .photos-section .col-md-2 {
+      padding: 0 5px;
+    }
+    .photos-section .col-md-2 img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px; /* Add bottom margin */
+    }
+
+    /* Media query to adjust photo size on smaller screens */
+    @media (max-width: 768px) {
+      .photos-section .col-md-2 {
+        max-width: 16.66667%;
+      }
+    }
+    .trending-categories-section {
+  animation: changeBackground 10s infinite alternate; /* Change duration as needed */
+  /* padding: 30px 0; */
+  color: white; /* Set text color to contrast with background */
+}
+
+/* Keyframes for background color change */
+@keyframes changeBackground {
+  0% { background-color: #ff7e5f; }
+  25% { background-color: #feb47b; }
+  50% { background-color: #ffcc5c; }
+  75% { background-color: #aaffa9; }
+  100% { background-color: #96e6a1; }
+}
+/* CSS for four photos section */
+.four-photos-section {
+    margin-top: 20px; /* Add top margin */
+  }
+  .four-photos-section .row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .four-photos-section .col-md-6 {
+    padding: 0 5px;
+  }
+  .four-photos-section .col-md-6 img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add bottom margin */
+  }
+
+  /* Media query to adjust photo size on smaller screens */
+  @media (max-width: 768px) {
+    .four-photos-section .col-md-6 {
+      max-width: 50%;
+    }
+  }
+  .too-hot-text {
+  animation: changeTextColor 10s infinite alternate; /* Change duration as needed */
+}
+
+/* Keyframes for text color change */
+@keyframes changeTextColor {
+  0% { color: #ff7e5f; }
+  25% { color: #feb47b; }
+  50% { color: #ffcc5c; }
+  75% { color: #aaffa9; }
+  100% { color: #96e6a1; }
+}
+
+.our-best-pick {
+  animation: changeBackground 10s infinite alternate; /* Change duration as needed */
+  /* padding: 30px 0; */
+  color: white; /* Set text color to contrast with background */
+}
+
+/* Keyframes for background color change */
+@keyframes changeBackground {
+  0% { background-color: #ff7e5f; }
+  25% { background-color: #feb47b; }
+  50% { background-color: #ffcc5c; }
+  75% { background-color: #aaffa9; }
+  100% { background-color: #96e6a1; }
+}
+
+
+  </style>
+</head>
+<body>
+
+   <!-- ====== navbar starting ======== -->
+    
+    {% include 'navbar_links.html' %}
+<!-- ====== navbar ending ========= -->
+
+<!-- ============carousel=========== -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slide"><a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/first.webp' %}" alt="Image 1"></a></div>
+          <div class="slide"><a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/second.webp' %}" alt="Image 2"></a></div>
+          <div class="slide"><a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/third.webp' %}" alt="Image 3"></a></div>
+          <div class="slide"><a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/fourth.webp' %}" alt="Image 4"></a></div>
+          <div class="slide"><a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/fifth.webp' %}" alt="Image 5"></a></div>
+          <!-- Add more slides as needed -->
+        </div>
+        <div class="prev" onclick="prevSlide()">❮</div>
+        <div class="next" onclick="nextSlide()">❯</div>
+        <div class="indicators"></div> <!-- Indicators container -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ============carousel=========== -->
+
+<!-- =======items======== -->
+<div class="container-fluid mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/first.webp' %}" class="img-fluid" alt="Image 1"></a>
+     <div class="description">New Arrivals</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/second.webp' %}" class="img-fluid" alt="Image 2"></a>
+      <div class="description">Bestsellers</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/third.webp' %}" class="img-fluid" alt="Image 3"></a>
+      <div class="description">Official Merch</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/fourth.webp' %}" class="img-fluid" alt="Image 4"></a>
+      <div class="description">Customization</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/fifth.jpg' %}" class="img-fluid" alt="Image 5"></a>
+      <div class="description">Vote for Design</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/sixth.webp' %}" class="img-fluid" alt="Image 6"></a>
+      <div class="description">Last Sizes Left</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/seven.webp' %}" class="img-fluid" alt="Image 7"></a>
+      <div class="description">Plus Size</div>
+    </div>
+    <div class="col-md-1 column-img mb-4">
+      <a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/items/eight.webp' %}" class="img-fluid" alt="Image 8"></a>
+      <div class="description">Coupon Offers</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =======ending items======== -->
+
+<!-- ====== sepration image========= -->
+  <a href="{% url 'men_section' %}"><img src="{% static 'main-men-product/items/sec-section.webp' %}" class="full-width-image" alt="Full-width Image"></a>
+<!-- ====== sepration image========= -->
+
+  <!-- Trending Categories section -->
+  <div class="container-fluid mt-4 trending-categories-section">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2>Trending Categories</h2>
+      </div>
+    </div>
+  </div>
+  
+      <!--======== Photos section ======-->
+  <div class="container-fluid mt-4 photos-section">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="{% url 'men_section' %}"><img src="{% static '/main-men-product/products/first.webp' %}" alt="Photo 1"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/second.webp' %}" alt="Photo 2"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/third.webp' %}" alt="Photo 3"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/fourth.webp' %}" alt="Photo 4"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/fifth.webp' %}" alt="Photo 5"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/six.webp' %}" alt="Photo 6"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/seven.webp' %}" alt="Photo 1"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/eight.webp' %}" alt="Photo 2"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/nine.webp' %}" alt="Photo 3"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/tenth.jpg' %}" alt="Photo 4"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/eleven.webp' %}" alt="Photo 5"></a>
+      </div>
+      <div class="col-md-2">
+        <a href="men-product.html"><img src="{% static '/main-men-product/products/tewelev.webp' %}" alt="Photo 6"></a>
+      </div>  
+      <!-- Repeat this for more photos -->
+    </div>
+  </div>
+
+  <!-- Four Photos section -->
+  <div class="container-fluid mt-2">
+    <h2 class="text-center too-hot-text">Too Hot to Missed</h2>
+    <div class="four-photos-section">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{% static '/main-men-product/to-hot/first.jpg' %}" class="img-fluid" alt="Photo 1">
+        </div>
+        <div class="col-md-6">
+          <img src="{% static '/main-men-product/to-hot/second.webp' %}" class="img-fluid" alt="Photo 2">
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <img src="{% static '/main-men-product/to-hot/third.webp' %}" class="img-fluid" alt="Photo 3">
+        </div>
+        <div class="col-md-6">
+          <img src="{% static '/main-men-product/to-hot/last.webp' %}" class="img-fluid" alt="Photo 4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==== four photos section -->
+
+  <!-- ======== Second carousel ====== -->
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide"><img src="{% static '/main-men-product/second-carousel/first.webp' %}" alt="Image 1"></div>
+            <div class="slide"><img src="{% static '/main-men-product/second-carousel/second.webp' %}" alt="Image 2"></div>
+            <div class="slide"><img src="{% static '/main-men-product/second-carousel/third.webp' %}" alt="Image 3"></div>
+            <div class="slide"><img src="{% static '/main-men-product/second-carousel/forth.webp' %}" alt="Image 4"></div>
+            <!-- Add more slides as needed -->
+          </div>
+          <div class="prev" onclick="prevSlide()">❮</div>
+          <div class="next" onclick="nextSlide()">❯</div>
+          <div class="indicators"></div> <!-- Indicators container -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======second carousel========= -->
+
+<!-- ==========best========= -->
+<div class="container-fluid mt-5">
+  <h2 class="text-center our-best-pick">Our Best Picks</h2>
+  <div class="four-photos-section">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{% static '/main-men-product/best/third.webp' %}" class="img-fluid" alt="Photo 1">
+      </div>
+      <div class="col-md-6">
+        <img src="{% static '/main-men-product/best/first.webp' %}" class="img-fluid" alt="Photo 2">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <img src="{% static '/main-men-product/best/fourth.webp' %}" class="img-fluid" alt="Photo 3">
+      </div>
+      <div class="col-md-6">
+        <img src="{% static '/main-men-product/best/second.webp' %}" class="img-fluid" alt="Photo 4">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- ====== sepration image========= -->
+  <img src="{% static 'main-men-product/best/last-section.webp' %}" class="full-width-image" alt="Full-width Image">
+<!-- ====== sepration image========= -->
+
+ <!-- footter starting -->
+  {% include 'footer.html' %}
+
+  <!-- footter ending  -->
+
+<script>
+  let slideIndex = 0;
+  let interval;
+
+  function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    if (slideIndex >= slides.length) {
+      slideIndex = 0;
+    } else if (slideIndex < 0) {
+      slideIndex = slides.length - 1;
+    }
+    const offset = slideIndex * (-100 / slides.length);
+    document.querySelector('.slider').style.transform = `translateX(${offset}%)`;
+    updateIndicators(); // Update indicators
+  }
+
+  function nextSlide() {
+    slideIndex++;
+    showSlides();
+  }
+
+  function prevSlide() {
+    slideIndex--;
+    showSlides();
+  }
+
+  function startAutoplay() {
+    interval = setInterval(nextSlide, 5000); // Adjust delay here
+  }
+
+  function stopAutoplay() {
+    clearInterval(interval);
+  }
+
+  function updateIndicators() {
+    const slides = document.querySelectorAll('.slide');
+    const indicatorsContainer = document.querySelector('.indicators');
+    indicatorsContainer.innerHTML = ''; // Clear previous indicators
+    slides.forEach((slide, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === slideIndex) {
+        dot.classList.add('active');
+      }
+      dot.onclick = () => {
+        slideIndex = index;
+        showSlides();
+      };
+      indicatorsContainer.appendChild(dot);
+    });
+  }
+
+  startAutoplay(); // Start autoplay
+  updateIndicators(); // Initialize indicators
+</script>
+
+</body>
+</html>

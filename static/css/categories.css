@@ -1,0 +1,30 @@
+/* Photos categories */
+.categories-photos-section {
+    margin-top: 20px; /* Add top margin */
+  }
+  .categories-photos-section .row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .categories-photos-section .main-cate {
+    padding: 0 5px;
+  }
+  .categories-photos-section .main-cate img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add bottom margin */
+    transition: transform 0.3s ease-in-out; /* Add transition for scaling */
+  }
+  
+  /* Media query to adjust photo size on smaller screens */
+  @media (max-width: 768px) {
+    .categories-photos-section .main-cate {
+      max-width: 16.66667%;
+    }
+  }
+
+  /* Hover effect */
+.categories-photos-section .main-cate img:hover {
+    opacity: 0.8;
+    transform: scale(1.1); /* Add scaling on hover */
+  }

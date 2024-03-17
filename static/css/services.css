@@ -1,0 +1,32 @@
+.image-container-service {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-container-service:hover {
+    transform: scale(1.05); /* Scale up the image on hover */
+}
+/*  */
+@media (max-width: 676px) {
+    .service-main {
+      flex: 0 0 50%; /* Set the flex basis to 50% for two columns per row */
+      max-width: 50%;
+    }
+  }
+
+  .our-best-pick {
+    animation: changeBackground 10s infinite alternate; /* Change duration as needed */
+    /* padding: 30px 0; */
+    color: white; /* Set text color to contrast with background */
+  }
+  
+  /* Keyframes for background color change */
+  @keyframes changeBackground {
+    0% { background-color: #ff7e5f; }
+    25% { background-color: #feb47b; }
+    50% { background-color: #ffcc5c; }
+    75% { background-color: #aaffa9; }
+    100% { background-color: #96e6a1; }
+  }
+  

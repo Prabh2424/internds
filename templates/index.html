@@ -1,0 +1,410 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-comm</title>
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/classic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bags.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categories.css' %}">
+    <link rel="stylesheet" href="{% static 'css/best-picks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/woman-gallery.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+    <!-- bootsrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- ==== owl carousel ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
+    <!-- caorusel css -->
+    <link rel="stylesheet" href="{% static '/css/carousel.css' %}">
+
+  </head>
+  <body>
+    
+     <!-- Sale Message -->
+  <div class="sale-mark">
+    <h1 class="sale-text">sale is live </h1>
+    <h1 class="sale-text">sale is live </h1>
+    <h1 class="sale-text">sale is live </h1>
+    <h1 class="sale-text">sale is live </h1>
+  </div>
+  <!-- Sale Message ending -->
+
+
+  <!-- ====== navbar starting ======== -->
+  {% if messages %}
+<div class="messages">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+  {% include 'navbar_links.html' %}
+<!-- ====== navbar ending ========= -->
+
+<!-- ======== link section end ========= -->
+
+    
+    <!-- carousel starting -->
+  
+    <div id="owl-demo" class="owl-carousel owl-theme">
+      <a href="main-women.html"><div class="item"><img src="{% static '/img/first.png' %}" alt="The Last of us"></div></a>
+      <a href="main-men.html"><div class="item"><img src="{% static '/img/second.png' %}" alt="GTA V"></div></a>
+      <a href="main-men.html"><div class="item"><img src="{% static '/img/third.webp' %}" alt="Mirror Edge"></div></a>
+      <a href="main-men.html"><div class="item"><img src="{% static '/img/fourth.webp' %}" alt="Mirror Edge"></div></a>
+    </div>
+    <div class="owl-navigation">
+      <!-- <button class="owl-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="owl-next"><i class="fas fa-chevron-right"></i></button> -->
+    </div>
+    
+      <!-- ==== carousel ending -->
+
+      
+          <!-- categories -->
+          <div class="container-fluid mt-5 categories-photos-section">
+            <div class="row">
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/first.webp' %}" alt="Photo 1"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/second.webp' %}" alt="Photo 2"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/third.webp' %}" alt="Photo 3"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/fourth.webp' %}" alt="Photo 4"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/fifth.webp' %}" alt="Photo 5"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/six.webp' %}" alt="Photo 6"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/seven.webp' %}" alt="Photo 1"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/eight.webp' %}" alt="Photo 2"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/nine.webp' %}" alt="Photo 3"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/tenth.jpg' %}" alt="Photo 4"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/eleven.webp' %}" alt="Photo 5"></a>
+              </div>
+              <div class="col-md-2 main-cate">
+                <a href="men-product.html"><img src="{% static '/main-men-product/products/tewelev.webp' %}" alt="Photo 6"></a>
+              </div>  
+              <!-- Repeat this for more photos -->
+            </div>
+          </div>
+        
+          <!-- categories-end -->
+
+          <h2 class="text-center  women-gallery-text " >Women Gallery</h2>
+          <div class="container-fluid women-gallery mt-3">
+            <div class="row">
+                <!-- Left Side: 4 Photos Section -->
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-6 women-gallery-items">
+                            <img src="{% static '/img/new-section/shop-banner.jpg' %}" alt="Photo 1" class="img-fluid women-gallery-image">
+                        </div>
+                        <div class="col-md-6 women-gallery-items">
+                            <img src="{% static '/img/new-section/banner4.jpg' %}" alt="Photo 2" class="img-fluid women-gallery-image">
+                        </div>
+                        <div class="col-md-6 women-gallery-items">
+                            <img src="{% static '/img/new-section/banner3.jpg' %}" alt="Photo 3" class="img-fluid women-gallery-image">
+                        </div>
+                        <div class="col-md-6 women-gallery-items">
+                            <img src="{% static '/img/new-section/banner1.jpg' %}" alt="Photo 4" class="img-fluid women-gallery-image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Side: Full Image Section -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6 women-gallery-items">
+                            <img src="{% static '/img/new-section/pro-details.jpg' %}" alt="Right Photo 1" class="img-fluid women-gallery-image">
+                        </div>
+                        <div class="col-md-6 women-gallery-items">
+                            <img src="{% static '/img/new-section/banner5.jpg' %}" alt="Right Photo 2" class="img-fluid women-gallery-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- discount image -->
+      <div class="container-fluid">
+        <img src="{% static '/img/fifth.webp' %}" alt="" style="max-width: 100%;">
+    </div>
+    <!-- discount image end -->
+
+
+    <!-- second carousel -->
+    <div id="another-owl-demo" class="owl-carousel owl-theme">
+        <div class="item"><img src="{% static '/img/discount/first.avif' %}" alt="Image 4"></div>
+        <div class="item"><img src="{% static '/img/discount/second.avif' %}" alt="Image 5"></div>
+        <div class="item"><img src="{% static '/img/discount/third.avif' %}" alt="Image 6"></div>
+        <div class="item"><img src="{% static '/img/discount/forth.avif' %}" alt="Image 6"></div>
+        <div class="item"><img src="{% static '/img/discount/fifth.avif' %}" alt="Image 6"></div>
+      </div>
+    <!-- second carousel-ending -->
+
+
+    <!-- ===== services start ====== -->
+
+    <div class="container-fluid mt-5">
+      <h2 class="text-center our-best-pick">Our Best Picks</h2>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/puma.avif' %}" class="img-fluid" alt="Puma"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/super.avif' %}" class="img-fluid" alt="Super"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/dynim.avif' %}" class="img-fluid" alt="Dynim"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/avasa.avif' %}" class="img-fluid" alt="Avasa"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <img src="{% static '/img/brands/gap.avif' %}" class="img-fluid" alt="Gap"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/johan.avif' %}" class="img-fluid" alt="Johan"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/nike.avif' %}" class="img-fluid" alt="Nike"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 service-main">
+            <div class="image-container-service">
+              <a href="men-product.html"><img src="{% static '/img/brands/super.avif' %}" class="img-fluid" alt="Super"></a>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <!-- Add more image containers as needed -->
+        </div>
+      </div>
+    </div>
+  
+    <!-- ===== services ends -->
+
+
+
+   <!-- Four Photos section -->
+  <div class="container-fluid mt-2">
+    <h2 class="text-center too-hot-text">Too Hot to Missed</h2>
+    <div class="four-photos-section">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="main-women.html"><img src="{% static '/main-men-product/to-hot/first.jpg' %}" class="img-fluid" alt="Photo 1"></a>
+        </div>
+        <div class="col-md-6">
+          <a href="main-men.html"><img src="{% static '/main-men-product/to-hot/second.webp' %}" class="img-fluid" alt="Photo 2"></a>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <a href="main-men.html"><img src="{% static '/main-men-product/to-hot/third.webp' %}" class="img-fluid" alt="Photo 3"></a>
+        </div>
+        <div class="col-md-6">
+          <a href="main-women.html"><img src="{% static '/main-men-product/to-hot/last.webp' %}" class="img-fluid" alt="Photo 4"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==== four photos section -->
+
+     <!-- ====== classic section ===== -->
+     <div class="container-fluid">
+        <div class="classic"><img src="{% static '/img/must/logo.avif' %}" alt=""></div>
+         <div class="classic-carousel">
+            <div class="classic-inner">
+              <div class="classic-items">
+                <!-- First four items here -->
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/first.avif' %}" alt=""></a></div>
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/second.avif' %}" alt=""></a></div>
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/third.avif' %}" alt=""></a></div>
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/fourth.avif' %}" alt=""></a></div>
+              </div>
+              <div class="classic-items">
+                <!-- Remaining items here -->
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/fifth.avif' %}" alt=""></a></div>
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/sixth.avif' %}" alt=""></a></div>
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/seventh.avif' %}" alt=""></a></div>
+                <div class="classic-item"><a href="men-product.html"><img src="{% static '/img/must/sixth.avif' %}" alt=""></a></div>
+                <!-- Add more items as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- classic section ends -->
+
+        <!-- bag-section -->
+        <!-- Trending Categories section -->
+  <div class="container-fluid mt-4 trending-categories-section">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2>Trending Categories</h2>
+      </div>
+    </div>
+  </div>
+  
+      <!--======== Photos section ======-->
+      <div class="container-fluid mt-5 categories-photos-section">
+        <div class="row">
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/first.webp' %}" alt="Photo 1"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/second.webp' %}" alt="Photo 2"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/third.webp' %}" alt="Photo 3"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/fourth.webp' %}" alt="Photo 4"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/fifth.webp' %}" alt="Photo 5"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/six.webp' %}" alt="Photo 6"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/seven.webp' %}" alt="Photo 1"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/eight.webp' %}" alt="Photo 2"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/nine.webp' %}" alt="Photo 3"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/tenth.jpg' %}" alt="Photo 4"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/eleven.webp' %}" alt="Photo 5"></a>
+          </div>
+          <div class="col-md-2 main-cate">
+            <a href="men-product.html"><img src="{% static '/main-men-product/products/tewelev.webp' %}" alt="Photo 6"></a>
+          </div>  
+          <!-- Repeat this for more photos -->
+        </div>
+      </div>
+      
+
+     <!-- ====== sepration image========= -->
+  <img src="{% static 'main-men-product/best/last-section.webp' %}" class="full-width-image" alt="Full-width Image">
+  <!-- ====== sepration image========= -->
+  
+   <!-- footter starting -->
+   <footer class="footer bg-dark text-white mt-4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>About Us</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Customer Service</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>My Account</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Follow Us</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+    <!-- footter ending  -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+    <!-- ======= bootsrap js bundel ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      
+    
+      <script src="{% static '/js/carousel.js' %}"></script>
+    <script src="{% static '/js/services.js' %}"></script>
+    <script src="{% static '/js/navbar.js' %}"></script>
+  </body>
+</html>
