@@ -103,84 +103,8 @@
 <body>
 
    <!-- ====== navbar starting ======== -->
-   
-   {% block navbar %}
-    
-   
-    
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid justify-content-between"> <!-- Add justify-content-between class -->
-          <!-- Hamburger menu icon -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- Logo -->
-          <a class="navbar-brand" href="#">
-              <img src="logo.png" alt="Logo" height="30">
-          </a>
-          <!-- Elements -->
-          <div class="collapse navbar-collapse" id="navbarNav"> <!-- Remove justify-content-center class -->
-              <ul class="navbar-nav mx-auto"> <!-- Add mx-auto class -->
-                  <li class="nav-item">
-                      <a class="nav-link" href="/index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/men-product.html">Men</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/women-product.html">Women</a>
-                  </li>
-              </ul>
-          </div>
-          <!-- Search Form -->
-          <div class="input-group search-field">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          </div>
-          <!-- Search Icon (shown on small screens) -->
-          <div class="d-lg-none search-icon">
-              <button class="btn btn-outline-dark">
-                  <i class="fas fa-search"></i>
-              </button>
-          </div>
-          <!-- Icons -->
-          <div class="navbar-icons">
-              <div class="divider-navbar"></div>
-              <div class="icon">
-                <a href="sign-in.html"><i class="fas fa-user"></i></a>
-              </div>
-              <div class="icon">
-                <a href="#"><i class="fas fa-heart"></i></a>
-              </div>
-              <div class="icon">
-                  <a href="#"><i class="fas fa-shopping-cart"></i></a>
-              </div>
-          </div>
-      </div>
-  </nav>
-
-  {% endblock navbar %}
+   {% include 'navbar_links.html' %}
 <!-- ====== navbar ending ========= -->
-
-     <!-- Links Section -->
-    <div class="container-fluid second-nav">
-      <div class="row mt-3">
-          <div class="col">
-              <div class="links-container-nav text-center"> <!-- Center the links container -->
-                  <div class="d-inline-flex flex-nowrap">
-                      <a href=""><div class="nav-link">Live Now</div></a>
-                      <a href=""><div class="nav-link">Shop Now</div></a>
-                      <a href="main-men.html"><div class="nav-link">Mens</div></a>
-                      <a href="main-women.html"><div class="nav-link">Women</div></a>
-                      <a href=""><div class="nav-link">Kids</div></a>
-                      <a href=""><div class="nav-link">Accessories</div></a>
-                      <a href=""><div class="nav-link">Top Brands</div></a>
-                      <a href=""><div class="nav-link">New Collection</div></a>
-                      <a href=""><div class="nav-link">Sale</div></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
 <!-- ======== link section end ========= -->
 
 
@@ -489,50 +413,7 @@
     {% endblock product-content %}
 
     <!--======== footter starting =============-->
-      <footer class="footer bg-dark text-white">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-3">
-              <h5>About Us</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="col-md-3">
-              <h5>Customer Service</h5>
-              <ul class="list-unstyled">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Shipping</a></li>
-                <li><a href="#">Returns</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <h5>My Account</h5>
-              <ul class="list-unstyled">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">My Orders</a></li>
-                <li><a href="#">Wishlist</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <h5>Follow Us</h5>
-              <ul class="list-inline">
-                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <p>&copy; 2024 Your Company. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-
+    {% include 'footer.html' %}
     <!--======= footter ending ==========-->
     
 </body>

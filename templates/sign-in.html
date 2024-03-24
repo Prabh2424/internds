@@ -77,6 +77,9 @@
   </div>
   {% endif %}
   
+  {% block content_login %}
+
+    
   <div class="container-fluid">
     <div class="row login-container" style="background-color: lightyellow;">
       <div class="col-md-6 image-container ">
@@ -117,6 +120,7 @@
       </div>
     </div>
   </div>
+  {% endblock content_login %}
 
   <script>
     // After page is fully loaded, hide the loader and show the main content

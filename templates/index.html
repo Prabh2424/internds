@@ -36,6 +36,8 @@
 
   </head>
   <body>
+
+        
     
      <!-- Sale Message -->
   <div class="sale-mark">
@@ -59,7 +61,10 @@
 </div>
 {% endif %}
 
-  {% include 'navbar_links.html' %}
+
+{% block content %}
+
+{% include 'navbar_links.html' %}
 <!-- ====== navbar ending ========= -->
 
 <!-- ======== link section end ========= -->
@@ -347,7 +352,10 @@
      <!-- ====== sepration image========= -->
   <img src="{% static 'main-men-product/best/last-section.webp' %}" class="full-width-image" alt="Full-width Image">
   <!-- ====== sepration image========= -->
+
   
+
+  {% endblock content %}
    <!-- footter starting -->
    <footer class="footer bg-dark text-white mt-4">
     <div class="container-fluid">

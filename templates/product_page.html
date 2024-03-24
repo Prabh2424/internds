@@ -2,6 +2,16 @@
 <meta name="csrf-token" content="{{ csrf_token }}">
 
 {% block product-content %}
+{% if messages %}
+<div class="messages">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
 
 <div class="container">
     <div class="card mb-3" style="max-width: 540px;">
@@ -24,18 +34,18 @@
 
                     <!-- Quantity dropdown -->
                     <div class="row justify-content-center">
-                        <div class="col-md-2">Quantity:</div>
-                        <div class="col-md-2">
-                            <select class="form-select form-select-sm" id="qty-cart">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br/>
+                      <div class="col-md-3"> Quantity:</div>
+                      <div class="col-md-2">
+                          <select class="form-select form-select-sm" id="qty-cart" style="border-radius: 5px; padding: 5px;">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                          </select>
+                      </div>
+                  </div>
+                <br/>
 
                     <!-- Add to Cart and Buy Now buttons -->
                     <div class="d-grid gap-2">
